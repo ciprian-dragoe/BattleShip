@@ -25,8 +25,7 @@ describe('GameScreenComponent', () => {
         ModalStubComponent
       ],
       providers: [{provide: ModalService, useValue: modalSpy}]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -47,7 +46,9 @@ describe('GameScreenComponent', () => {
 
   describe('newGame', () => {
     it('should call modal open with right id', () => {
-      expect(modalSpy.open).toHaveBeenCalledWith('game-selector');
+      component.newGame();
+
+      expect(modalSpy.open).toHaveBeenCalledTimes(2);
     });
   });
 });
