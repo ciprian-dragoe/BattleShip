@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ModalService } from '../services/modal.service';
 import { GameScreenComponent } from './game-screen.component';
 
 @Component({selector: 'bat-game-selector', template: ''})
 class GameSelectorStubComponent {
+  @Input() currentGame: any;
 }
 
 @Component({selector: 'bat-modal', template: ''})

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Game } from '../models/Game';
+import { GameBuilderService } from '../services/game-builder.service';
 import { ModalService } from '../services/modal.service';
 
 @Component({
@@ -7,14 +9,25 @@ import { ModalService } from '../services/modal.service';
   styleUrls: ['./game-selector.component.css']
 })
 export class GameSelectorComponent implements OnInit {
+  @Input() currentGame: Game;
+  @Output() currentGameChanged = new EventEmitter<Game>();
 
-  constructor(private modalService: ModalService) { }
+  constructor(
+    private modalService: ModalService,
+    private gameBuilder: GameBuilderService) {
+  }
 
   ngOnInit() {
   }
 
-  closeModal(id: string) {
-    this.modalService.close(id);
+  resumeGame() {
+    this.modalService.close('game-selector');
+  }
+
+  newGame() {
+    const newGame = this.gameBuilder.build();
+    this.currentGameChanged.emit(newGame);
+    this.modalService.close('game-selector');
   }
 
 }
