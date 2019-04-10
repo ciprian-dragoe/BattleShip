@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameSelectorComponent } from './game-selector.component';
 
+@Component({selector: 'bat-modal', template: ''})
+class ModalStubComponent {}
+
 describe('GameSelectorComponent', () => {
   let component: GameSelectorComponent;
   let fixture: ComponentFixture<GameSelectorComponent>;
@@ -11,7 +14,7 @@ describe('GameSelectorComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         GameSelectorComponent,
-        SimpleModalStub,
+        ModalStubComponent,
       ]
     })
     .compileComponents();
@@ -27,6 +30,3 @@ describe('GameSelectorComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-@Component({selector: 'simple-modal', template: ''})
-class SimpleModalStub {}

@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 
 @Component({
-  selector: 'simple-modal',
+  selector: 'bat-modal',
   template:
     `<div class="jw-modal">
             <div class="jw-modal-body">
@@ -12,7 +12,7 @@ import { ModalService } from '../services/modal.service';
         <div class="jw-modal-background"></div>`
 })
 
-export class SimpleModalComponent implements OnInit, OnDestroy {
+export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 
@@ -21,7 +21,7 @@ export class SimpleModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    let modal = this;
+    const modal = this;
 
     // ensure id attribute exists
     if (!this.id) {
@@ -33,7 +33,7 @@ export class SimpleModalComponent implements OnInit, OnDestroy {
     document.body.appendChild(this.element);
 
     // close modal on background click
-    this.element.addEventListener('click', function (e: any) {
+    this.element.addEventListener('click', (e: any) => {
       if (e.target.className === 'jw-modal') {
         modal.close();
       }

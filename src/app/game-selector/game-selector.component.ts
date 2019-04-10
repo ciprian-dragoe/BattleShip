@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 
 @Component({
-  selector: 'game-selector',
+  selector: 'bat-game-selector',
   templateUrl: './game-selector.component.html',
   styleUrls: ['./game-selector.component.css']
 })

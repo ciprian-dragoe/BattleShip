@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GameScreenComponent } from './game-screen.component';
+
+@Component({selector: 'bat-game-selector', template: ''})
+class GameSelectorStubComponent {}
+
+@Component({selector: 'bat-modal', template: ''})
+class ModalStubComponent {}
 
 describe('GameScreenComponent', () => {
   let component: GameScreenComponent;
@@ -11,8 +16,8 @@ describe('GameScreenComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         GameScreenComponent,
-        GameSelectorStub,
-        SimpleModalStub
+        GameSelectorStubComponent,
+        ModalStubComponent
       ]
     })
     .compileComponents();
@@ -28,9 +33,3 @@ describe('GameScreenComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-@Component({selector: 'game-selector', template: ''})
-class GameSelectorStub {}
-
-@Component({selector: 'simple-modal', template: ''})
-class SimpleModalStub {}
