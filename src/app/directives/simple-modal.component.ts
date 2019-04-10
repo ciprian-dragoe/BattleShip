@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { ModalService } from '../services/modal.service';
 
 @Component({
-  selector: 'jw-modal',
+  selector: 'simple-modal',
   template:
     `<div class="jw-modal">
             <div class="jw-modal-body">
@@ -12,7 +12,7 @@ import { ModalService } from '../services/modal.service';
         <div class="jw-modal-background"></div>`
 })
 
-export class ModalComponent implements OnInit, OnDestroy {
+export class SimpleModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   private element: any;
 
