@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { GameInstance } from '../interfaces/GameInstance';
+import { GameInstance } from '../../game/GameInstance';
 import { ModalService } from '../services/modal.service';
 
 @Component({

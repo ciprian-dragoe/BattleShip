@@ -1,37 +1,32 @@
-import { GameInstance } from '../interfaces/GameInstance';
-import { MapCell } from '../interfaces/MapCell';
-import { MapLegend } from '../interfaces/MapLegend';
+import { GameState } from './builders/game-state-builder';
+import { Location } from './game-objects/map/map';
 
 export class GameInstance {
-  public map: number[][];
-  public gameOver: boolean;
-
-  constructor(private gameInstance: GameInstance) {
-    this.map = this.gameInstance.map;
-    this.gameOver = this.gameInstance.gameFinished;
+  constructor(private gameState: GameState) {
   }
 
-  launchAttack(location: MapCell) {
-    this.map[location.x][location.y] = this.GetAttackResponse(location);
-    this.updateGameWinner();
+  launchAttack(mapLocation: Location) {
+    const shipId = this.gameState.map.attackLocation(mapLocation);
+    this.processShipHit(shipId);
   }
 
-  private GetAttackResponse(location: MapCell) {
-    let result = MapLegend.DamagedEmpty;
-    for (const ship of this.gameInstance.ships) {
-      const response = ship.getAttackedResponse(location);
-      if (response === MapLegend.Player1ShipHit) {
-        result = response;
-        break;
-      }
+  getCurrentState() {
+    return {
+      isGameOver: this.getGameStatus(),
+      map: this.gameState.map.getWorldState()
+    };
+  }
+
+  private processShipHit(shipId: number) {
+    const hitShip = this.gameState.ships.find(ship => ship.getId() === shipId);
+    if (hitShip) {
+      hitShip.takeHit();
     }
-
-    return result;
   }
 
-  private updateGameWinner() {
-    let shipsHealth = 0;
-    this.gameInstance.ships.forEach(ship => shipsHealth += ship.remainingHealth);
-    this.gameOver = shipsHealth === 0;
+  private getGameStatus(): boolean {
+    let shipHealth = 0;
+    this.gameState.ships.forEach(ship => shipHealth += ship.getCurrentHealth());
+    return shipHealth === 0;
   }
 }

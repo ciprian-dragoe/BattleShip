@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { GameInstance } from '../interfaces/GameInstance';
-import { GameBuilderService } from '../services/game-builder.service';
+import { GameInstance } from '../../game/GameInstance';
 import { ModalService } from '../services/modal.service';
 
 import { GameSelectorComponent } from './game-selector.component';
@@ -28,7 +27,6 @@ describe('GameSelectorComponent', () => {
       ],
       providers: [
         {provide: ModalService, useValue: modalSpy},
-        {provide: GameBuilderService, useValue: gameBuilderSpy}
       ]
     }).compileComponents();
   }));

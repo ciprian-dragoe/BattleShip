@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GameInstance } from '../interfaces/GameInstance';
-import { GameOptions } from '../interfaces/GameOptions';
-import { SHIP_TYPES } from '../interfaces/ShipTypes';
-import { GameBuilderService } from '../services/game-builder.service';
+import { GameOptions } from '../../game/builders/game-state-builder';
+import { SHIP_TYPES } from '../../game/game-objects/ship/ship-types';
+import { GameInstance } from '../../game/GameInstance';
 import { ModalService } from '../services/modal.service';
 
 @Component({
@@ -15,8 +14,7 @@ export class GameSelectorComponent implements OnInit {
   @Output() currentGameChanged = new EventEmitter<GameInstance>();
 
   constructor(
-    private modalService: ModalService,
-    private gameBuilder: GameBuilderService) {
+    private modalService: ModalService) {
   }
 
   ngOnInit() {
@@ -28,12 +26,10 @@ export class GameSelectorComponent implements OnInit {
 
   newGame() {
     const defaultGameOptions: GameOptions = {
-      MapSizeXaxis: 10,
-      MapSizeYaxis: 10,
+      mapSize: { x: 10, y: 10 },
       Player1Ships: [SHIP_TYPES.battleShip, SHIP_TYPES.destroyer, SHIP_TYPES.destroyer]
     };
-    const newGame = this.gameBuilder.build(defaultGameOptions);
-    this.currentGameChanged.emit(newGame);
+    this.currentGameChanged.emit();
     this.modalService.close('game-selector');
   }
 
