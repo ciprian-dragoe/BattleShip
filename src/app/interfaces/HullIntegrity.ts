@@ -2,7 +2,7 @@ import { HullState } from './HullState';
 import { MapCell } from './MapCell';
 
 export interface HullIntegrity {
-  Location: MapCell;
+  mapLocation: MapCell;
   healthValue: number;
   hullState: HullState;
 }

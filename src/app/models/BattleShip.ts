@@ -14,7 +14,7 @@ export class BattleShip extends Ship {
   }
 
   private buildHullStructure(): HullIntegrity[] {
-    const defaultHullIntegrity: HullIntegrity = { healthValue: 1, hullState: HullState.Intact, Location: {x: 0, y: 0}};
+    const defaultHullIntegrity: HullIntegrity = { healthValue: 1, hullState: HullState.Intact, mapLocation: {x: 0, y: 0}};
     return [
       defaultHullIntegrity,
       defaultHullIntegrity,

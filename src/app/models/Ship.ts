@@ -13,8 +13,8 @@ export abstract class Ship {
   }
 
   private static IsHit(hull: HullIntegrity, location: MapCell) {
-    return hull.Location.x === location.x &&
-      hull.Location.y === location.y &&
+    return hull.mapLocation.x === location.x &&
+      hull.mapLocation.y === location.y &&
       hull.hullState === HullState.Intact;
   }
 
@@ -33,5 +33,11 @@ export abstract class Ship {
     }
 
     return result;
+  }
+
+  updateLocation(coordinates: MapCell[]) {
+    for (let i = 0; i < this.shipIntegrity.length; i++) {
+      this.shipIntegrity[i].mapLocation = coordinates[i];
+    }
   }
 }

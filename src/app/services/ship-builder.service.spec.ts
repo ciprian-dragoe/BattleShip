@@ -38,8 +38,8 @@ describe('ShipBuilderService', () => {
     it('should create destroyer with hull location default', () => {
       const result = instance.build(SHIP_TYPES.destroyer);
 
-      expect(result.shipIntegrity[0].Location.x).toBe(0);
-      expect(result.shipIntegrity[0].Location.y).toBe(0);
+      expect(result.shipIntegrity[0].mapLocation.x).toBe(0);
+      expect(result.shipIntegrity[0].mapLocation.y).toBe(0);
     });
 
     it('should create battleship with correct remaining life', () => {
@@ -63,8 +63,8 @@ describe('ShipBuilderService', () => {
     it('should create battleship with hull location default', () => {
       const result = instance.build(SHIP_TYPES.battleShip);
 
-      expect(result.shipIntegrity[0].Location.x).toBe(0);
-      expect(result.shipIntegrity[0].Location.y).toBe(0);
+      expect(result.shipIntegrity[0].mapLocation.x).toBe(0);
+      expect(result.shipIntegrity[0].mapLocation.y).toBe(0);
     });
   });
 });
