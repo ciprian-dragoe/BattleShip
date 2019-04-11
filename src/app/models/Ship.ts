@@ -6,6 +6,7 @@ import { MapCell } from '../interfaces/MapCell';
 export abstract class Ship {
   remainingHealth: number;
   shipIntegrity: HullIntegrity[];
+  shipDesign: MapCell[];
 
   protected constructor(startingHealth: number) {
     this.remainingHealth = startingHealth;
