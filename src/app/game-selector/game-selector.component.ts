@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Game } from '../interfaces/Game';
+import { GameInstance } from '../interfaces/GameInstance';
 import { GameOptions } from '../interfaces/GameOptions';
 import { SHIP_TYPES } from '../interfaces/ShipTypes';
 import { GameBuilderService } from '../services/game-builder.service';
@@ -11,8 +11,8 @@ import { ModalService } from '../services/modal.service';
   styleUrls: ['./game-selector.component.css']
 })
 export class GameSelectorComponent implements OnInit {
-  @Input() currentGame: Game;
-  @Output() currentGameChanged = new EventEmitter<Game>();
+  @Input() currentGame: GameInstance;
+  @Output() currentGameChanged = new EventEmitter<GameInstance>();
 
   constructor(
     private modalService: ModalService,

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Game } from '../interfaces/Game';
+import { GameInstance } from '../interfaces/GameInstance';
 import { ModalService } from '../services/modal.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ModalService } from '../services/modal.service';
 })
 export class GameScreenComponent implements AfterViewInit {
 
-  gameInstance: Game;
+  gameInstance: GameInstance;
 
   constructor(private modalService: ModalService) {
   }

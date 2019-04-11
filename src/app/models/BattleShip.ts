@@ -5,8 +5,8 @@ import { Ship } from './Ship';
 export class BattleShip extends Ship {
   constructor() {
     super(5);
-    this.shipIntegrity = this.buildHullStructure();
-    this.shipDesign = this.buildShipDesignOnMap();
+    this.integrity = this.buildHullStructure();
+    this.design = this.buildShipDesignOnMap();
   }
 
   private buildShipDesignOnMap() {

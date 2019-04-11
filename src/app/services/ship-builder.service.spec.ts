@@ -26,20 +26,20 @@ describe('ShipBuilderService', () => {
     it('should create destroyer with hull integrity intact', () => {
       const result = instance.build(SHIP_TYPES.destroyer);
 
-      expect(result.shipIntegrity[0].hullState).toBe(HullState.Intact);
+      expect(result.integrity[0].hullState).toBe(HullState.Intact);
     });
 
     it('should create destroyer with hull correct health value', () => {
       const result = instance.build(SHIP_TYPES.destroyer);
 
-      expect(result.shipIntegrity[0].healthValue).toBe(1);
+      expect(result.integrity[0].healthValue).toBe(1);
     });
 
     it('should create destroyer with hull location default', () => {
       const result = instance.build(SHIP_TYPES.destroyer);
 
-      expect(result.shipIntegrity[0].mapLocation.x).toBe(0);
-      expect(result.shipIntegrity[0].mapLocation.y).toBe(0);
+      expect(result.integrity[0].mapLocation.x).toBe(0);
+      expect(result.integrity[0].mapLocation.y).toBe(0);
     });
 
     it('should create battleship with correct remaining life', () => {
@@ -51,20 +51,20 @@ describe('ShipBuilderService', () => {
     it('should create battleship with hull integrity intact', () => {
       const result = instance.build(SHIP_TYPES.battleShip);
 
-      expect(result.shipIntegrity[0].hullState).toBe(HullState.Intact);
+      expect(result.integrity[0].hullState).toBe(HullState.Intact);
     });
 
     it('should create battleship with hull correct health value', () => {
       const result = instance.build(SHIP_TYPES.battleShip);
 
-      expect(result.shipIntegrity[0].healthValue).toBe(1);
+      expect(result.integrity[0].healthValue).toBe(1);
     });
 
     it('should create battleship with hull location default', () => {
       const result = instance.build(SHIP_TYPES.battleShip);
 
-      expect(result.shipIntegrity[0].mapLocation.x).toBe(0);
-      expect(result.shipIntegrity[0].mapLocation.y).toBe(0);
+      expect(result.integrity[0].mapLocation.x).toBe(0);
+      expect(result.integrity[0].mapLocation.y).toBe(0);
     });
   });
 });

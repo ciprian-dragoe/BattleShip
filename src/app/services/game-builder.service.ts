@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Game } from '../interfaces/Game';
+import { GameInstance } from '../interfaces/GameInstance';
 import { GameOptions } from '../interfaces/GameOptions';
 import { MapLegend } from '../interfaces/MapLegend';
 import { Ship } from '../models/Ship';
@@ -19,14 +19,14 @@ export class GameBuilderService {
   ) {
   }
 
-  build(gameOptions: GameOptions): Game {
+  build(gameOptions: GameOptions): GameInstance {
     const map = this.mapBuilder.build(gameOptions.MapSizeXaxis, gameOptions.MapSizeYaxis);
     const ships = this.buildShips(gameOptions.Player1Ships);
     this.placeShipsOnMap(ships, map);
 
     return {
-      Map: map,
-      Ships: ships
+      map: map,
+      ships: ships
     };
   }
 

@@ -6,8 +6,8 @@ export class Destroyer extends Ship
 {
   constructor() {
     super(4);
-    this.shipIntegrity = this.buildHullStructure();
-    this.shipDesign = this.buildShipDesignOnMap();
+    this.integrity = this.buildHullStructure();
+    this.design = this.buildShipDesignOnMap();
   }
 
   private buildShipDesignOnMap() {

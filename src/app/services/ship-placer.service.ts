@@ -39,7 +39,7 @@ export class ShipPlacerService {
 
   private getShipCoordinates(map: number[][], ship: Ship, coordinate: MapCell): MapCell[] {
     let result: MapCell[] = [];
-    for (const part of ship.shipIntegrity) {
+    for (const part of ship.integrity) {
       const possibleLocation: MapCell = {x: part.mapLocation.x + coordinate.x, y: part.mapLocation.y + coordinate.y};
       result.push(possibleLocation);
       if (!this.IsValidLocation(map, possibleLocation)) {
