@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
 import { MapLegend } from '../interfaces/MapLegend';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class MapBuilderService {
+export class MapBuilder {
 
   constructor() {
   }

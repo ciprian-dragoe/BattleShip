@@ -1,12 +1,8 @@
-import { Injectable } from '@angular/core';
 import { MapCell } from '../interfaces/MapCell';
 import { MapLegend } from '../interfaces/MapLegend';
 import { Ship } from '../models/Ship';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ShipPlacerService {
+export class ShipPlacer {
 
   constructor() {
   }

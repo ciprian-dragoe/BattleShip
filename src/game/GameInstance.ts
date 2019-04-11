@@ -2,12 +2,17 @@ import { GameInstance } from '../interfaces/GameInstance';
 import { MapCell } from '../interfaces/MapCell';
 import { MapLegend } from '../interfaces/MapLegend';
 
-export class GameEngine {
+export class GameInstance {
+  public map: number[][];
+  public gameOver: boolean;
+
   constructor(private gameInstance: GameInstance) {
+    this.map = this.gameInstance.map;
+    this.gameOver = this.gameInstance.gameFinished;
   }
 
   launchAttack(location: MapCell) {
-    this.gameInstance.map[location.x][location.y] = this.GetAttackResponse(location);
+    this.map[location.x][location.y] = this.GetAttackResponse(location);
     this.updateGameWinner();
   }
 
@@ -27,6 +32,6 @@ export class GameEngine {
   private updateGameWinner() {
     let shipsHealth = 0;
     this.gameInstance.ships.forEach(ship => shipsHealth += ship.remainingHealth);
-    this.gameInstance.gameFinished = shipsHealth === 0;
+    this.gameOver = shipsHealth === 0;
   }
 }

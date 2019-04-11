@@ -10,7 +10,7 @@ import { ShipPlacerService } from './ship-placer.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GameBuilderService {
+export class GameInitializer {
 
   constructor(
     private mapBuilder: MapBuilderService,
