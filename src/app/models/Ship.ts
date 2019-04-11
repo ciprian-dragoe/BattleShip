@@ -1,31 +1,31 @@
 import { CellStatus } from '../interfaces/CellStatus';
+import { HullState } from '../interfaces/HullState';
 import { HullIntegrity } from '../interfaces/HullIntegrity';
-import { HullStructure } from '../interfaces/HullStructure';
 import { MapCell } from '../interfaces/MapCell';
 
 export abstract class Ship {
   remainingHealth: number;
-  protected hullStructure: HullStructure[];
+  shipIntegrity: HullIntegrity[];
 
   protected constructor(startingHealth: number) {
     this.remainingHealth = startingHealth;
   }
 
-  private static IsHit(hull: HullStructure, location: MapCell) {
+  private static IsHit(hull: HullIntegrity, location: MapCell) {
     return hull.Location.x === location.x &&
       hull.Location.y === location.y &&
-      hull.hullIntegrity === HullIntegrity.Intact;
+      hull.hullState === HullState.Intact;
   }
 
   getAttackedResponse(location: MapCell): CellStatus {
     let result: CellStatus = CellStatus.Missed;
 
-    for (const hull of this.hullStructure) {
+    for (const hull of this.shipIntegrity) {
       if (!Ship.IsHit(hull, location)) {
         return;
       }
 
-      hull.hullIntegrity = HullIntegrity.Destroyed;
+      hull.hullState = HullState.Destroyed;
       result = CellStatus.Hit;
       this.remainingHealth -= hull.healthValue;
       break;
