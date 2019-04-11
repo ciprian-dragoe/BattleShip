@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Game } from '../models/Game';
+import { Game } from '../interfaces/Game';
 import { GameBuilderService } from '../services/game-builder.service';
 import { ModalService } from '../services/modal.service';
 
