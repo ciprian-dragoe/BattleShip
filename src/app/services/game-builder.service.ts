@@ -25,8 +25,9 @@ export class GameBuilderService {
     this.placeShipsOnMap(ships, map);
 
     return {
-      map: map,
-      ships: ships
+      map,
+      ships,
+      gameFinished: false
     };
   }
 

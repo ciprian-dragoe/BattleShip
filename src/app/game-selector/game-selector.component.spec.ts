@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Game } from '../models/Game';
+import { GameInstance } from '../interfaces/GameInstance';
 import { GameBuilderService } from '../services/game-builder.service';
 import { ModalService } from '../services/modal.service';
 
@@ -15,7 +15,7 @@ describe('GameSelectorComponent', () => {
   let fixture: ComponentFixture<GameSelectorComponent>;
   let modalSpy: any;
   let gameBuilderSpy: any;
-  const newGame: Game = {} as Game;
+  const newGame: GameInstance = {} as GameInstance;
 
   beforeEach(async(() => {
     modalSpy = jasmine.createSpyObj('ModalService', ['close']);

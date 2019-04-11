@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CellStatus } from '../interfaces/CellStatus';
+import { MapLegend } from '../interfaces/MapLegend';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class MapBuilderService {
     for (let i = 0; i < rows; i++) {
       map[i] = new Array(columns);
       for (let j = 0; j < columns; j++) {
-        map[i][j] = CellStatus.Intact;
+        map[i][j] = MapLegend.IntactEmpty;
       }
     }
 
