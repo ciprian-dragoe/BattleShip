@@ -11,18 +11,20 @@ export class WorldWithShipBuilder {
 
   build(ships: Ship[], mapSize: MapSize): number[][] {
     this.world = this.worldBuild.build(mapSize);
-
     ships.forEach(ship => {
-      let shipCoordinates: Location[];
-      do {
-        const startCoordinates = this.getRandomCoordinate(this.world);
-        shipCoordinates = this.generateShipCoordinates(this.world, ship, startCoordinates);
-      } while (shipCoordinates);
-
-      shipCoordinates.forEach(coordinate => this.world[coordinate.xAxis][coordinate.yAxis] = ship.getId());
+      this.representShipOnMap(ship);
     });
-
     return this.world;
+  }
+
+  private representShipOnMap(ship: Ship) {
+    let shipCoordinates: Location[];
+    do {
+      const startCoordinates = this.getRandomCoordinate(this.world);
+      shipCoordinates = this.generateShipCoordinates(this.world, ship, startCoordinates);
+    } while (shipCoordinates);
+
+    this.updateWorldCoordinates(shipCoordinates, ship.getId());
   }
 
   private getRandomCoordinate(map: number[][]): Location {
@@ -47,6 +49,10 @@ export class WorldWithShipBuilder {
     }
 
     return result;
+  }
+
+  private updateWorldCoordinates(shipCoordinates: Location[], shipId: number) {
+    shipCoordinates.forEach(coordinate => this.world[coordinate.xAxis][coordinate.yAxis] = shipId);
   }
 
   private generateShipCoordinate(part, startCoordinate: Location) {
