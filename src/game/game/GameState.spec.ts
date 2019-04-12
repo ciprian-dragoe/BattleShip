@@ -3,7 +3,7 @@ import { GameState } from './GameState';
 
 describe('GameState', () => {
   let instance: GameState;
-  const mapSpy = jasmine.createSpyObj('Map', ['attackLocation', 'getWorldState']);
+  const mapSpy = jasmine.createSpyObj('Map', ['attackLocation', 'getState']);
   const shipSpy = jasmine.createSpyObj('Ship', ['getId', 'takeHit', 'getCurrentHealth']);
   const location: Location = {xAxis: 1, yAxis: 1};
   const setupShipHitDependencies = () => {
@@ -17,7 +17,7 @@ describe('GameState', () => {
   };
   beforeEach((() => {
     shipSpy.takeHit.calls.reset();
-    mapSpy.getWorldState.and.returnValue([100]);
+    mapSpy.getState.and.returnValue([100]);
     shipSpy.getId.and.returnValue(100);
     instance = new GameState(mapSpy, [shipSpy]);
   }));
@@ -75,10 +75,10 @@ describe('GameState', () => {
   });
 
   describe('state', () => {
-    it('calls map getWorldState', () => {
+    it('calls map getState', () => {
       const result = instance.state();
 
-      expect(mapSpy.getWorldState).toHaveBeenCalledTimes(1);
+      expect(mapSpy.getState).toHaveBeenCalledTimes(1);
     });
   });
 });

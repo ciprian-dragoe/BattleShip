@@ -25,23 +25,23 @@ describe('Map', () => {
     it('should set ship hit value when ship is hit', () => {
       instance.attackLocation(shipLocation);
 
-      expect(instance.getWorldState()[0][1]).toBe(MapLegend.Player1ShipHit);
+      expect(instance.getState()[0][1]).toBe(MapLegend.Player1ShipHit);
     });
 
     it('should set empty area damaged value when nothing hit', () => {
       instance.attackLocation(emptyLocation);
 
-      expect(instance.getWorldState()[0][0]).toBe(MapLegend.DamagedEmpty);
+      expect(instance.getState()[0][0]).toBe(MapLegend.DamagedEmpty);
     });
   });
 
-  describe('getWorldState', () => {
+  describe('getState', () => {
     it('should return map', () => {
-      expect(instance.getWorldState()).toEqual(world);
+      expect(instance.getState()).toEqual(world);
     });
 
     it('should return a new instance of the map then the given one', () => {
-      expect(instance.getWorldState() !== world).toBeTruthy();
+      expect(instance.getState() !== world).toBeTruthy();
     });
   });
 });

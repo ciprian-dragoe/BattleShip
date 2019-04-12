@@ -23,7 +23,7 @@ export class GameState {
   }
 
   state(): number[][] {
-    return this.map.getWorldState();
+    return this.map.getState();
   }
 
   private hitShip(shipId: number) {

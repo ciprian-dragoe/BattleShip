@@ -22,7 +22,7 @@ export class Map {
     return targetHit;
   }
 
-  getWorldState(): number[][] {
+  getState(): number[][] {
     const result = [];
     for (let i = 0; i < this.worldRepresentation.length; i++) {
       result[i] = new Array(this.worldRepresentation.length);

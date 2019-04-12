@@ -8,25 +8,26 @@ import { GameState } from './game/GameState';
 import { Location } from './map/map';
 
 export class GameInstance {
-  constructor(private gameState: GameState) {
+  private static gameState: GameState;
+
+  private constructor() {
   }
 
-  restart(gameOptions: GameOptions) {
-    // to integrate with your IOC later in your project
+  start(gameOptions: GameOptions) {
     const gameStateBuilder = new GameStateBuilder(
       new ShipBuilder(),
       new MapBuilder(new WorldPopulationBuilder(new WorldBuilder(), new ShipCoordinatesBuilder())));
-    this.gameState = gameStateBuilder.build(gameOptions);
+    GameInstance.gameState = gameStateBuilder.build(gameOptions);
   }
 
   attack(mapLocation: Location) {
-    this.gameState.attack(mapLocation);
+    GameInstance.gameState.attack(mapLocation);
   }
 
   state() {
     return {
-      isGameOver: this.gameState.isGameOver(),
-      state: this.gameState.state()
+      isGameOver: GameInstance.gameState.isGameOver(),
+      state: GameInstance.gameState.state()
     };
   }
 }
