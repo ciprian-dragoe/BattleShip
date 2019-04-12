@@ -1,7 +1,7 @@
 import { MapSize } from '../game-objects/map/map';
 import { MapLegend } from '../game-objects/map/map-legend';
 
-export class WordRepresentationBuilder {
+export class WordBuilder {
   build(mapSize: MapSize): number[][] {
     const result = [];
     for (let i = 0; i < mapSize.x; i++) {

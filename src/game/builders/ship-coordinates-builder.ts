@@ -1,30 +1,19 @@
-import { Location, MapSize } from '../game-objects/map/map';
+import { Location } from '../game-objects/map/map';
 import { MapLegend } from '../game-objects/map/map-legend';
 import { Ship } from '../game-objects/ship/ship';
-import { WordRepresentationBuilder } from './world-representation-builder';
 
-export class WorldWithShipBuilder {
-  private world: number[][];
-
-  constructor(private worldBuild: WordRepresentationBuilder) {
+export class ShipCoordinatesBuilder {
+  constructor() {
   }
 
-  build(ships: Ship[], mapSize: MapSize): number[][] {
-    this.world = this.worldBuild.build(mapSize);
-    ships.forEach(ship => {
-      this.representShipOnMap(ship);
-    });
-    return this.world;
-  }
-
-  private representShipOnMap(ship: Ship) {
+  build(ship: Ship, map: number[][]): Location[] {
     let shipCoordinates: Location[];
     do {
-      const startCoordinates = this.getRandomCoordinate(this.world);
-      shipCoordinates = this.generateShipCoordinates(this.world, ship, startCoordinates);
+      const startCoordinates = this.getRandomCoordinate(map);
+      shipCoordinates = this.generateShipCoordinates(map, ship, startCoordinates);
     } while (shipCoordinates);
 
-    this.updateWorldCoordinates(shipCoordinates, ship.getId());
+    return shipCoordinates;
   }
 
   private getRandomCoordinate(map: number[][]): Location {
@@ -38,7 +27,7 @@ export class WorldWithShipBuilder {
 
   private generateShipCoordinates(map: number[][], ship: Ship, startCoordinate: Location): Location[] {
     let result = [];
-    const shipDesign = ship.getDesignOnMap();
+    const shipDesign = ship.getSchematic();
     for (const part of shipDesign) {
       const possibleLocation = this.generateShipCoordinate(part, startCoordinate);
       result.push(possibleLocation);
@@ -49,10 +38,6 @@ export class WorldWithShipBuilder {
     }
 
     return result;
-  }
-
-  private updateWorldCoordinates(shipCoordinates: Location[], shipId: number) {
-    shipCoordinates.forEach(coordinate => this.world[coordinate.xAxis][coordinate.yAxis] = shipId);
   }
 
   private generateShipCoordinate(part, startCoordinate: Location) {

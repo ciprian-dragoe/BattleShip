@@ -2,7 +2,7 @@ import { Ship } from './Ship';
 import { Location } from '../map/map';
 
 export class Destroyer extends Ship {
-  private static shipDesignOnMap: Location[] = [
+  private static schematic: Location[] = [
     {xAxis: 0, yAxis: 0},
     {xAxis: 0, yAxis: 1},
     {xAxis: 0, yAxis: 2},
@@ -11,6 +11,6 @@ export class Destroyer extends Ship {
 
   constructor(id: number) {
     super(id, 4);
-    this.setDesignOnMap(Destroyer.shipDesignOnMap);
+    this.setSchematic(Destroyer.schematic);
   }
 }

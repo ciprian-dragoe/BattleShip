@@ -1,12 +1,12 @@
 import { MapSize } from '../game-objects/map/map';
 import { Ship } from '../game-objects/ship/ship';
 import { Map } from '../game-objects/map/map';
-import { WorldWithShipBuilder } from './world-with-ship-builder';
+import { WorldPopulationBuilder } from './world-population-builder';
 
 export class MapBuilder {
 
   constructor(
-    private worldBuilder: WorldWithShipBuilder) {
+    private worldBuilder: WorldPopulationBuilder) {
   }
 
   build(mapSize: MapSize, ships: Ship[]): Map {

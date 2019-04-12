@@ -1,7 +1,7 @@
 import { Location } from '../map/map';
 
 export abstract class Ship {
-  designOnMap: Location[];
+  schematic: Location[];
 
   protected constructor(private id, private health: number) {
   }
@@ -10,16 +10,16 @@ export abstract class Ship {
     this.health--;
   }
 
-  protected setDesignOnMap(designOnMap: Location[]) {
-    this.designOnMap = designOnMap;
+  protected setSchematic(designOnMap: Location[]) {
+    this.schematic = designOnMap;
   }
 
   getId(): number {
     return this.id;
   }
 
-  getDesignOnMap(): Location[] {
-    return this.designOnMap;
+  getSchematic(): Location[] {
+    return this.schematic;
   }
 
   getCurrentHealth(): number {

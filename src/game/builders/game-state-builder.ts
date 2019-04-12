@@ -1,13 +1,8 @@
+import { GameState } from '../game-objects/game/GameState';
 import { MapSize } from '../game-objects/map/map';
 import { Ship } from '../game-objects/ship/ship';
-import { Map } from '../game-objects/map/map';
 import { MapBuilder } from './map-builder';
 import { ShipBuilder } from './ship-builder';
-
-export interface GameState {
-  map: Map;
-  ships: Ship[];
-}
 
 export interface GameOptions {
   mapSize: MapSize;
@@ -24,10 +19,7 @@ export class GameStateBuilder {
     const ships = this.buildShips(gameOptions.Player1Ships);
     const map = this.mapBuilder.build(gameOptions.mapSize, ships);
 
-    return {
-      map,
-      ships
-    };
+    return new GameState(map, ships);
   }
 
   private buildShips(shipTypes: string[]): Ship[] {
