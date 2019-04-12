@@ -1,7 +1,7 @@
 import { Location } from '../map/map';
 
 export abstract class Ship {
-  schematic: Location[];
+  private schematic: Location[];
 
   protected constructor(private id, private health: number) {
   }

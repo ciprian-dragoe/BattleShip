@@ -42,18 +42,6 @@ describe('GameSelectorComponent', () => {
   });
 
   describe('newGame', () => {
-    it('should call game builder build', () => {
-      component.newGame();
-
-      expect(gameBuilderSpy.build).toHaveBeenCalled();
-    });
-
-    it('should emit new game', () => {
-      component.currentGameChanged.subscribe(game => expect(game).toBe(newGame));
-
-      component.newGame();
-    });
-
     it('should call modal close with right id', () => {
       component.newGame();
 
