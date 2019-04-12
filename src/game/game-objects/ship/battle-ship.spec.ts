@@ -10,5 +10,9 @@ describe('BattleShip', () => {
     it('should set right schematic length', () => {
       expect(instance.getSchematic().length).toBe(5);
     });
+
+    it('should set right health', () => {
+      expect(instance.getCurrentHealth()).toBe(5);
+    });
   });
 });

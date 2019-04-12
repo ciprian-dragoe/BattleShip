@@ -11,7 +11,7 @@ export class BattleShip extends Ship {
   ];
 
   constructor(shipId: number) {
-    super(shipId, 4);
+    super(shipId, 5);
     this.setSchematic(BattleShip.shipDesignOnMap);
   }
 }
