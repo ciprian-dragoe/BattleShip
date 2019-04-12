@@ -11,7 +11,7 @@ export class ShipCoordinatesBuilder {
     do {
       const startCoordinates = this.getRandomCoordinate(map);
       shipCoordinates = this.generateShipCoordinates(map, ship, startCoordinates);
-    } while (shipCoordinates);
+    } while (!shipCoordinates);
 
     return shipCoordinates;
   }
@@ -27,9 +27,9 @@ export class ShipCoordinatesBuilder {
 
   private generateShipCoordinates(map: number[][], ship: Ship, startCoordinate: Location): Location[] {
     let result = [];
-    const shipDesign = ship.getSchematic();
-    for (const part of shipDesign) {
-      const possibleLocation = this.generateShipCoordinate(part, startCoordinate);
+    const schematic = ship.getSchematic();
+    for (const part of schematic) {
+      const possibleLocation = this.mapSchematicPartToMap(part, startCoordinate);
       result.push(possibleLocation);
       if (!this.IsValidLocation(map, possibleLocation)) {
         result = null;
@@ -40,11 +40,11 @@ export class ShipCoordinatesBuilder {
     return result;
   }
 
-  private generateShipCoordinate(part, startCoordinate: Location) {
+  private mapSchematicPartToMap(part, startCoordinate: Location) {
     return { xAxis: part.xAxis + startCoordinate.xAxis, yAxis: part.yAxis + startCoordinate.yAxis };
   }
 
   private IsValidLocation(map: number[][], possibleLocation: Location) {
-    return map[possibleLocation.xAxis][possibleLocation.yAxis] !== MapLegend.IntactEmpty;
+    return map[possibleLocation.xAxis][possibleLocation.yAxis] === MapLegend.IntactEmpty;
   }
 }
