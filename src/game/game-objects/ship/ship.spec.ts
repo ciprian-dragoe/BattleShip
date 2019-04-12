@@ -6,7 +6,7 @@ class Mock extends Ship {
   }
 }
 
-describe('Destroyer', () => {
+describe('Ship', () => {
   let instance: Ship;
   beforeEach((() => {
     instance = new Mock();
