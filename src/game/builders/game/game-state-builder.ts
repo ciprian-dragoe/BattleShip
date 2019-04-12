@@ -1,8 +1,8 @@
-import { GameState } from '../game-objects/game/GameState';
-import { MapSize } from '../game-objects/map/map';
-import { Ship } from '../game-objects/ship/ship';
-import { MapBuilder } from './map-builder';
-import { ShipBuilder } from './ship-builder';
+import { GameState } from '../../game-objects/game/GameState';
+import { MapSize } from '../../game-objects/map/map';
+import { Ship } from '../../game-objects/ship/ship';
+import { MapBuilder } from '../map/map-builder';
+import { ShipBuilder } from '../ship/ship-builder';
 
 export interface GameOptions {
   mapSize: MapSize;

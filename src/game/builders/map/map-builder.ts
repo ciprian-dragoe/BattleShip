@@ -1,7 +1,7 @@
-import { MapSize } from '../game-objects/map/map';
-import { Ship } from '../game-objects/ship/ship';
-import { Map } from '../game-objects/map/map';
-import { WorldPopulationBuilder } from './world-population-builder';
+import { MapSize } from '../../game-objects/map/map';
+import { Ship } from '../../game-objects/ship/ship';
+import { Map } from '../../game-objects/map/map';
+import { WorldPopulationBuilder } from '../world/world-population-builder';
 
 export class MapBuilder {
 

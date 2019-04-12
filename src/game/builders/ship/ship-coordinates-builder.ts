@@ -1,6 +1,6 @@
-import { Location } from '../game-objects/map/map';
-import { MapLegend } from '../game-objects/map/map-legend';
-import { Ship } from '../game-objects/ship/ship';
+import { Location } from '../../game-objects/map/map';
+import { MapLegend } from '../../game-objects/map/map-legend';
+import { Ship } from '../../game-objects/ship/ship';
 
 export class ShipCoordinatesBuilder {
   constructor() {

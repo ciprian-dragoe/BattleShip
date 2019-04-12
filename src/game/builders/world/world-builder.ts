@@ -1,5 +1,5 @@
-import { MapSize } from '../game-objects/map/map';
-import { MapLegend } from '../game-objects/map/map-legend';
+import { MapSize } from '../../game-objects/map/map';
+import { MapLegend } from '../../game-objects/map/map-legend';
 
 export class WordBuilder {
   build(mapSize: MapSize): number[][] {

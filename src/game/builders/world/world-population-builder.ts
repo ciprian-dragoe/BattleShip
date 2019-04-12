@@ -1,7 +1,7 @@
-import { Location, MapSize } from '../game-objects/map/map';
-import { Ship } from '../game-objects/ship/ship';
-import { ShipCoordinatesBuilder } from './ship-coordinates-builder';
-import { WordBuilder } from './world-builder';
+import { Location, MapSize } from '../../game-objects/map/map';
+import { Ship } from '../../game-objects/ship/ship';
+import { ShipCoordinatesBuilder } from '../ship/ship-coordinates-builder';
+import { WordBuilder } from '../world/world-builder';
 
 export class WorldPopulationBuilder {
   private world: number[][];
