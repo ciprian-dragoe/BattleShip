@@ -33,6 +33,13 @@ describe('Map', () => {
 
       expect(instance.getState()[0][0]).toBe(MapLegend.DamagedEmpty);
     });
+
+    it('should maintain ship damaged if attacked again', () => {
+      instance.attackLocation(shipLocation);
+      instance.attackLocation(shipLocation);
+
+      expect(instance.getState()[0][1]).toBe(MapLegend.Player1ShipHit);
+    });
   });
 
   describe('getState', () => {

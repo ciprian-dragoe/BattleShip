@@ -14,7 +14,7 @@ describe('ShipBuilder', () => {
     it('should create object with right id', () => {
       const result = instance.build(SHIP_TYPES.destroyer);
 
-      expect(result.getId()).toBe(100);
+      expect(result.getId()).toBeGreaterThan(99);
     });
 
     it('should create object instance with type of BattleShip', () => {

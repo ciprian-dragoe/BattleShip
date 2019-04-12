@@ -1,8 +1,5 @@
 <div style="text-align:center">
-  <h1>
-    Welcome to BattleShips!
-  </h1>
   <button (click)="newGame()">New Game</button>
+  <bat-game-map *ngIf="!isGameOver" (attack)="attack($event)" [map]="map"></bat-game-map>
+  <div *ngIf="isGameOver">Game finished, press "NewGame" button.</div>
 </div>
-
-<bat-game-selector [(currentGame)]="gameInstance"></bat-game-selector>

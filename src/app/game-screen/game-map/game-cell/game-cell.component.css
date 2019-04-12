@@ -1,0 +1,18 @@
+.not-damaged {
+  padding: 20px;
+  background: aqua;
+  display: inline-block;
+  margin: 0px;
+}
+
+.damaged-empty {
+  padding: 20px;
+  background: black;
+  display: inline-block;
+}
+
+.damaged-ship {
+  padding: 20px;
+  background: red;
+  display: inline-block;
+}

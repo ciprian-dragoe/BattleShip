@@ -1,0 +1,6 @@
+<span [ngSwitch]="value">
+  <span class="not-damaged" *ngSwitchCase="legend.IntactEmpty"></span>
+  <span class="damaged-empty" *ngSwitchCase="legend.DamagedEmpty"></span>
+  <span class="damaged-ship" *ngSwitchCase="legend.Player1ShipHit"></span>
+  <span class="not-damaged" *ngSwitchDefault></span>
+</span>

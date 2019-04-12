@@ -1,15 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalService } from '../services/modal.service';
 import { GameScreenComponent } from './game-screen.component';
 
-@Component({selector: 'bat-game-selector', template: ''})
-class GameSelectorStubComponent {
-  @Input() currentGame: any;
-}
-
-@Component({selector: 'bat-modal', template: ''})
-class ModalStubComponent {
+@Component({selector: 'bat-game-map', template: ''})
+class GameMapStubComponent {
+  @Input() map: any;
 }
 
 describe('GameScreenComponent', () => {
@@ -22,10 +17,9 @@ describe('GameScreenComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         GameScreenComponent,
-        GameSelectorStubComponent,
-        ModalStubComponent
+        GameMapStubComponent
       ],
-      providers: [{provide: ModalService, useValue: modalSpy}]
+      providers: []
     }).compileComponents();
   }));
 
@@ -36,20 +30,7 @@ describe('GameScreenComponent', () => {
   });
 
   it('should be created', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
-  });
-
-  describe('afterViewInit', () => {
-    it('should call modal open with right id', () => {
-      expect(modalSpy.open).toHaveBeenCalledWith('game-selector');
-    });
-  });
-
-  describe('newGame', () => {
-    it('should call modal open with right id', () => {
-      component.newGame();
-
-      expect(modalSpy.open).toHaveBeenCalledTimes(2);
-    });
   });
 });

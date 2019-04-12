@@ -13,18 +13,19 @@ export class GameInstance {
   private constructor() {
   }
 
-  start(gameOptions: GameOptions) {
+  static start(gameOptions: GameOptions): GameState {
     const gameStateBuilder = new GameStateBuilder(
       new ShipBuilder(),
       new MapBuilder(new WorldPopulationBuilder(new WorldBuilder(), new ShipCoordinatesBuilder())));
     GameInstance.gameState = gameStateBuilder.build(gameOptions);
+    return GameInstance.gameState;
   }
 
-  attack(mapLocation: Location) {
+  static attack(mapLocation: Location) {
     GameInstance.gameState.attack(mapLocation);
   }
 
-  state() {
+  static state() {
     return {
       isGameOver: GameInstance.gameState.isGameOver(),
       state: GameInstance.gameState.state()

@@ -37,7 +37,9 @@ export class Map {
     if (this.shipIdsOnMap.find(id => id === targetHit)) {
       this.worldRepresentation[location.xAxis][location.yAxis] = MapLegend.Player1ShipHit;
     } else {
-      this.worldRepresentation[location.xAxis][location.yAxis] = MapLegend.DamagedEmpty;
+      if (targetHit !== MapLegend.Player1ShipHit) {
+        this.worldRepresentation[location.xAxis][location.yAxis] = MapLegend.DamagedEmpty;
+      }
     }
   }
 }
