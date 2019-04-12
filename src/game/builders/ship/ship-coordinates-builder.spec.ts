@@ -1,4 +1,4 @@
-import { Location } from '../../game-objects/map/map';
+import { Location } from '../../map/map';
 import { ShipCoordinatesBuilder } from './ship-coordinates-builder';
 
 describe('ShipCoordinatesBuilder', () => {

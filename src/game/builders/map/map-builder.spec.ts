@@ -1,4 +1,4 @@
-import { Map, MapSize } from '../../game-objects/map/map';
+import { Map, MapSize } from '../../map/map';
 import { WorldPopulationBuilder } from '../world/world-population-builder';
 import { MapBuilder } from './map-builder';
 

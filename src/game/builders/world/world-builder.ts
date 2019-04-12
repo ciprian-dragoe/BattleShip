@@ -1,5 +1,5 @@
-import { MapSize } from '../../game-objects/map/map';
-import { MapLegend } from '../../game-objects/map/map-legend';
+import { MapSize } from '../../map/map';
+import { MapLegend } from '../../map/map-legend';
 
 export class WorldBuilder {
   build(mapSize: MapSize): number[][] {

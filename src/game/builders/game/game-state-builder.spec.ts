@@ -1,4 +1,4 @@
-import { GameState } from '../../game-objects/game/GameState';
+import { GameState } from '../../game/GameState';
 import { GameOptions, GameStateBuilder } from './game-state-builder';
 
 describe('GameStateBuilder', () => {

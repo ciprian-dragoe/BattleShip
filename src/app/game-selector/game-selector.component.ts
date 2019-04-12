@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GameOptions } from '../../game/builders/game/game-state-builder';
-import { SHIP_TYPES } from '../../game/game-objects/ship/ship-types';
+import { SHIP_TYPES } from '../../game/ship/ship-types';
 import { GameInstance } from '../../game/GameInstance';
 import { ModalService } from '../services/modal.service';
 

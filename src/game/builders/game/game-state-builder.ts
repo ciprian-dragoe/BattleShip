@@ -1,6 +1,6 @@
-import { GameState } from '../../game-objects/game/GameState';
-import { MapSize } from '../../game-objects/map/map';
-import { Ship } from '../../game-objects/ship/ship';
+import { GameState } from '../../game/GameState';
+import { MapSize } from '../../map/map';
+import { Ship } from '../../ship/ship';
 import { MapBuilder } from '../map/map-builder';
 import { ShipBuilder } from '../ship/ship-builder';
 

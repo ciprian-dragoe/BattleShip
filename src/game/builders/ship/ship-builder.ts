@@ -1,6 +1,6 @@
-import { BattleShip } from '../../game-objects/ship/battle-ship';
-import { Destroyer } from '../../game-objects/ship/destroyer';
-import { SHIP_TYPES } from '../../game-objects/ship/ship-types';
+import { BattleShip } from '../../ship/battle-ship';
+import { Destroyer } from '../../ship/destroyer';
+import { SHIP_TYPES } from '../../ship/ship-types';
 
 export class ShipBuilder {
   private static LastShipId = 100;

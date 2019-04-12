@@ -1,5 +1,5 @@
-import { Location, MapSize } from '../../game-objects/map/map';
-import { Ship } from '../../game-objects/ship/ship';
+import { Location, MapSize } from '../../map/map';
+import { Ship } from '../../ship/ship';
 import { ShipCoordinatesBuilder } from '../ship/ship-coordinates-builder';
 import { WorldBuilder } from '../world/world-builder';
 

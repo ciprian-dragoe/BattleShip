@@ -1,4 +1,4 @@
-import { Location } from './game-objects/map/map';
+import { Location } from './map/map';
 import { GameInstance } from './GameInstance';
 
 describe('GameInstance', () => {
@@ -36,7 +36,7 @@ describe('GameInstance', () => {
     it('should return right value', () => {
       const result = instance.state();
 
-      expect(result.map.length).toBe(0);
+      expect(result.state.length).toBe(0);
       expect(result.isGameOver).toBe(true);
     });
   });
