@@ -25,6 +25,7 @@ export class GameStateBuilder {
   private buildShips(shipTypes: string[]): Ship[] {
     const result = [];
     shipTypes.forEach(type => result.push(this.shipBuilder.build(type)));
+
     return result;
   }
 }
