@@ -16,7 +16,7 @@ describe('GameStateBuilder', () => {
   }));
 
   describe('build', () => {
-    it('should call mapBuilder build with right parameter', () => {
+    it('should call mapBuilder build', () => {
       instance.build(options);
 
       expect(mapBuilderSpy.build).toHaveBeenCalled();
@@ -28,7 +28,7 @@ describe('GameStateBuilder', () => {
       expect(shipBuilderSpy.build).toHaveBeenCalledTimes(options.Player1Ships.length);
     });
 
-    it('should return right values', () => {
+    it('should return right object type', () => {
       const result = instance.build(options);
 
       expect(result instanceof GameState).toBeTruthy();
