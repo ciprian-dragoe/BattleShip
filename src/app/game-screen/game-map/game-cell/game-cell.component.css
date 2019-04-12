@@ -2,17 +2,22 @@
   padding: 20px;
   background: aqua;
   display: inline-block;
-  margin: 0px;
+  color: transparent;
+  vertical-align: middle;
 }
 
 .damaged-empty {
   padding: 20px;
   background: black;
   display: inline-block;
+  color: transparent;
+  vertical-align: middle;
 }
 
 .damaged-ship {
   padding: 20px;
   background: red;
   display: inline-block;
+  color: transparent;
+  vertical-align: middle;
 }

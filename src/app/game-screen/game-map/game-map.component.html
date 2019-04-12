@@ -1,4 +1,5 @@
 <div *ngFor="let row of map; let rowIndex=index">
+  <span style="margin-right: 10px">{{rowIndex}}</span>
   <span *ngFor="let cell of row; let columnIndex=index">
     <bat-game-cell [value]="cell" (click)="attackLocation(rowIndex, columnIndex)"></bat-game-cell>
   </span>
